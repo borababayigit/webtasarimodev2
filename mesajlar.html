@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mesajınız Alındı</title>
+</head>
+<body>
+    <h1>Mesajınız Alındı</h1>
+    <p>Aşağıda bize gönderdiğiniz bilgiler yer almaktadır:</p>
+
+    <ul id="mesaj-bilgileri"></ul>
+
+    <a href="urunler.html">Ürünler Sayfasına Geri Dön</a>
+
+    <script>
+        
+        const params = new URLSearchParams(window.location.search);
+        const liste = document.getElementById("mesaj-bilgileri");
+
+        
+        for (const [anahtar, deger] of params.entries()) {
+            const li = document.createElement("li");
+            li.textContent = `${anahtar}: ${deger}`;
+            liste.appendChild(li);
+        }
+    </script>
+</body>
+</html>
